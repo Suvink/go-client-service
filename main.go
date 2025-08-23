@@ -38,7 +38,7 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Create response with the template format
 	response := Response{
-		Type:    "main",
+		Type:    "dev",
 		Message: string(body),
 	}
 
