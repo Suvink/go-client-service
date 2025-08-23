@@ -16,7 +16,7 @@ type Response struct {
 
 func greetHandler(w http.ResponseWriter, r *http.Request) {
 	// Get the URL from environment variable, default to localhost:8080/hello if not set
-	url := os.Getenv("HELLO_SERVICE_URL")
+	url := os.Getenv("CHOREO_HELLO_SERVICE_MAIN_CONNECTION_SERVICEURL")
 	if url == "" {
 		url = "http://localhost:8080/hello"
 	}
