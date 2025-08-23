@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: Test Client Service
+  description: A service that proxies requests to localhost:8080/hello
+  version: 1.0.0
+servers:
+  - url: http://localhost:8081
+    description: Local development server
+paths:
+  /greet:
+    get:
+      summary: Get greeting
+      description: Proxies a GET request to localhost:8080/hello and returns the response in a JSON template
+      security: []
+      responses:
+        '200':
+          description: Successful response from upstream service
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: "main"
+                  message:
+                    type: string
+                    example: "Hello, World!"
+                required:
+                  - type
+                  - message
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Error making request: connection refused"
+        '502':
+          description: Bad gateway - upstream service error
+          content:
+            '*/*':
+              schema:
+                type: string
+      tags:
+        - greeting
