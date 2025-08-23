@@ -22,7 +22,7 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Make GET request to the configured URL
-	resp, err := http.Get(url)
+	resp, err := http.Get(url + "/hello")
 	if err != nil {
 		http.Error(w, fmt.Sprintf("Error making request: %v", err), http.StatusInternalServerError)
 		return
