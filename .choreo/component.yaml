@@ -29,5 +29,5 @@ endpoints:
 
 dependencies:
     connectionReferences:
-    - name: hello-service-main-connection
+    - name: hello-service-test-connection
       resourceRef: service:/default/hello-service-go/v1/5c69c/PUBLIC
